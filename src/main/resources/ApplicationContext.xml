@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+ 		http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--  XML을 생성하고 bean에서 id와 class를 정의합니다.  -->
+    <bean id="RegisterDao" class="DAO.RegisterDao"/>
+
+    <!--  RegisterDao 객체 생성 -> RegisterService Bean을 생성 할 때
+      constructor-arg를 이용하여 RegisterDao 객체를 주입합니다. -->
+    <bean id="RegisterService" class="Service.RegisterService">
+        <constructor-arg ref="RegisterDao"/>
+    </bean>
+
+</beans>
