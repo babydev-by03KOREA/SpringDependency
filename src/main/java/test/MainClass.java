@@ -14,6 +14,8 @@ public class MainClass {
         register.join(new RegisterVO.Builder().setUserId("test1").setUserPw("test1").setUserEmail("test1@gmail.com").build());
         register.join(new RegisterVO.Builder().setUserId("test2").setUserPw("test2").setUserEmail("test2@gmail.com").build());
 
+        /* 1.가입조건확인해 -> RegisterVo의 Builder메소드 ->  */
+
         register.print();
 
         ctx.close();
