@@ -1,2 +1,2 @@
-.idea
-Spring-Test.iml
+!/.idea/
+!/Spring-Test.iml
