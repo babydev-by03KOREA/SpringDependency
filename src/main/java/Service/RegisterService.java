@@ -3,6 +3,7 @@ package Service;
 // 실제로 값이 들어갈 수 있는지 체크하고 -> DAO를 호출하는 역할을 함.
 
 import DAO.RegisterDao;
+import org.springframework.beans.factory.annotation.Autowired;
 import vo.RegisterVO;
 
 import java.util.Iterator;
@@ -10,6 +11,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 public class RegisterService {
+//  선언 후 주입!
     RegisterDao registerDAO;
 //  RegisterDao registerDAO = new RegisterDao();
 

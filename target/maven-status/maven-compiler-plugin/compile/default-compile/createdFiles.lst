@@ -1,5 +1,0 @@
-vo/RegisterVO.class
-vo/RegisterVO$Builder.class
-test/MainClass.class
-Service/RegisterService.class
-DAO/RegisterDao.class
