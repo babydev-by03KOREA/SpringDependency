@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+ 		http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- id가 dog1이고, Animal2.MyDogs클래스를 뜻하는 bean(객체) 생성 -->
+<!-- 첫번째 강아지 -->
+    <bean id="dog1" class="Animal2.MyDogs">
+            <constructor-arg>   <!-- 생성자를 이용 -->
+                <value>호두</value>
+            </constructor-arg>
+            <constructor-arg>
+                <value>2</value>
+            </constructor-arg>
+            <constructor-arg>
+                <list>  <!-- 배열일 경우에 사용-->
+                    <value>누워</value>
+                    <value>앉아</value>
+                </list>
+            </constructor-arg>
+        </bean>
+<!-- 두번째 강아지 -->
+        <bean id="dog2" class="Animal2.MyDogs">
+            <constructor-arg> <value>몽실이</value> </constructor-arg>
+            <constructor-arg> <value>9</value> </constructor-arg>
+            <constructor-arg>
+                <list>
+                    <value>짖기</value>
+                    <value>물기</value>
+                </list>
+            </constructor-arg>
+        </bean>
+
+<!-- id가 dogsInfo이고, Animal2패키지에 있는 Dogs클래스를 뜻하는 bean(객체) 생성-->
+        <bean id="dogsInfo" class="Animal2.Dogs">
+        <!-- dogsInfo라는 bean은 위에서 만든 dog1이라는 bean(객체)를 참조함-->
+            <constructor-arg>
+                <ref bean="dog1"/>
+        <!-- 여전히 dogsInfo는 dog1을 참조하고 있음. -->
+            </constructor-arg>
+        </bean>
+</beans>
