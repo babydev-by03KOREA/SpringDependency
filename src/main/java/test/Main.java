@@ -18,5 +18,7 @@ public class Main {
 //      호출
         myCats.catsNameInfo();
         myCats.catsAgeInfo();
+//      자원반납
+        ctx.close();
     }
 }
