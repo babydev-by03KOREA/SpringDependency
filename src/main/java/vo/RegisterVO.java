@@ -1,10 +1,11 @@
 package vo;
 
 public class RegisterVO {
+//  은닉화된 멤버변수
     private String userId;
     private String userPw;
     private String userEmail;
-
+//  은닉화된 멤버변수에 값을 넣는방법 ==> 생성자 사용!
     public String getUserId() {
         return userId;
     }
@@ -32,6 +33,7 @@ public class RegisterVO {
 //  메소드의 오버로딩 (생성자의 선언) / 클래스의 생성자
 //  규칙 1. 클래스이름() 2. 클래스이름(인수1, 인수2)
     RegisterVO(Builder builder) {
+        super();
 //      입력값으로 문자열을 필요로 하는 생성자
         userId = builder.userId;
         userPw = builder.userPw;

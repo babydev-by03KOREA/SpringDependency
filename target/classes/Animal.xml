@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+ 		http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- "Animal.Cats"클래스를 cats라는 id를 지정해서 객체(bean)을 생성
+     이 객체(bean)의 이름 (id)는 cats입니다. cats는 Animal패키지에 있는 Cats 클래스를 말합니다.-->
+
+    <bean id="cats" class="Animal.Cats"/>
+
+    <!-- "Animal.MyCats"클래스를 myCats라는 id를 지정해서 객체(bean)을 생성-->
+    <bean id="myCats" class="Animal.MyCats">
+    <!-- Animal.MyCats라는 클래스에 있는 필드들의 값을 설정해줌-->
+        <property name="cats">  <!-- 첫번째 property(필드)-->
+            <ref bean="cats"/>  <!-- 이 property는 위에서 생성한 bean(객체)인 cats를 참조한다. -->
+        </property>
+        <property name="firstCatAge" value="1"/> <!-- MyCats의 필드의 이름과 값을 설정 -->
+        <property name="secondCatAge" value="2"/>
+        <property name="firstCatName" value="호두" />
+        <property name="secondCatName" value="댕냥이" />
+    </bean>
+</beans>
