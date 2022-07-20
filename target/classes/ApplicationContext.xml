@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+ 		http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--  XML을 생성하고 bean에서 id와 class를 정의합니다.  -->
+    <bean id="RegisterDao" class="DAO.RegisterDao"/>
+
+    <!--  RegisterDao 객체 생성 -> RegisterService Bean을 생성 할 때
+      constructor-arg를 이용하여 RegisterDao 객체를 주입합니다. -->
+    <bean id="RegisterService" class="Service.RegisterService">
+        <!-- AutoWired 설정으로 주석처리 -->
+         <constructor-arg ref="RegisterDao"/>
+    </bean>
+
+    <bean id="DatabaseProperty" class="common.DatabaseProperty">
+        <property name="jdbcUrl" value="jdbc:oracle:thin@localhost:1521:xe/"/>
+        <property name="userId" value="user"/>
+        <property name="userPw" value="!qhdkscjfwj@"/>
+    </bean>
+
+    <bean id="databaseProperty2" class="common.DatabaseProperty2">
+        <property name="jdbcUserInfo">
+            <list>
+                <value>jdbc:oracle:thin@localhost:1521:xe/</value>
+                <value>user</value>
+                <value>!qhdkscjfwj@</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="databaseProperty3" class="common.databaseProperty3">
+        <property name="jdbcUserInfo">
+            <map>
+                <entry>
+                    <key>
+                        <value>jdbcUrl</value>
+                    </key>
+                    <value>jdbc:oracle:thin@localhost:1521:xe/</value>
+                </entry>
+                <entry>
+                    <key>
+                        <value>userId</value>
+                    </key>
+                    <value>scott</value>
+                </entry>
+                <entry>
+                    <key>
+                        <value>userPw</value>
+                    </key>
+                    <value>tiger</value>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+</beans>
